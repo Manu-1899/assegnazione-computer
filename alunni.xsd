@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+    <xs:element name="Sezione">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Alunno" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Nome" type="xs:string"/>
+                            <xs:element name="Cognome" type="xs:string"/>
+                            <xs:element name="Dispositivo">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="os" type="xs:string"/>
+                                        <xs:element name="app" type="xs:string"
+                                                    minOccurs="0"
+                                                    maxOccurs="unbounded"/>
+                                        <xs:element name="Data_assegnazione"
+                                                    type="xs:string"
+                                                    minOccurs="0"/>
+                                        <xs:element name="Data_utilizzo" type="xs:string"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="tipo" use="required">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:enumeration value="Personale"/>
+                                                <xs:enumeration value="Scolastico"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:attribute>
+                                    <xs:attribute name="codice" type="xs:string" use="optional"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>

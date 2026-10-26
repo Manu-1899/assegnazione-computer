@@ -1,0 +1,109 @@
+Sezione {
+    display: block;
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: 20px auto;
+    color: #222;
+}
+
+
+Sezione::before {
+    content: "Assegnazione dispositivi - Classe 5AIA";
+    display: block;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+
+Alunno {
+    display: block;
+    border: 1px solid #bbb;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-color: #f7f9fc;
+}
+
+
+Nome, Cognome {
+    display: inline;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+Nome {
+    margin-right: 5px;
+}
+
+
+Dispositivo {
+    display: block;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+
+Dispositivo::before {
+    content: "Tipo: " attr(tipo);
+    display: block;
+    font-weight: bold;
+    color: #176b87;
+    margin-bottom: 8px;
+}
+
+
+Dispositivo[codice]::after {
+    content: "Codice dispositivo: " attr(codice);
+    display: block;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+
+os, app, Data_assegnazione, Data_utilizzo {
+    display: block;
+    margin: 5px 0;
+}
+
+
+os::before {
+    content: "Sistema operativo: ";
+    font-weight: bold;
+}
+
+
+app::before {
+    content: "Applicazione: ";
+    font-weight: bold;
+}
+
+
+Data_assegnazione::before {
+    content: "Data assegnazione: ";
+    font-weight: bold;
+}
+
+
+Data_utilizzo::before {
+    content: "Data utilizzo: ";
+    font-weight: bold;
+}
+
+
+@media print {
+    Sezione {
+        max-width: 100%;
+        margin: 0;
+    }
+
+
+    Alunno {
+        background-color: white;
+        break-inside: avoid;
+        border-radius: 0;
+    }
+}
